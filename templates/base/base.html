@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+ {% block extrahead %}
+ {% endblock %}
+ <link rel="stylesheet" href="{% static 'css/wallpaper.css' %}">
+ <link rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.min.css">
+ <link rel="stylesheet" type="text/css" ref="{% static 'css/bootstrap.min.css' %}">
+
+
+ <title>{% block title %} PACMA Tres Arroyos {% endblock %} </title>
+</head>
+
+<body>
+
+ <div class="container">
+
+
+{% block navbar %}
+    <div class="bs-docs-section clearfix">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="bs-component">
+                  <nav class="navbar navbar-default">
+                      <div class="container-fluid">
+                          <div class="navbar-header">
+                            <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
+                          </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                          <ul class="nav navbar-nav">
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mascotas <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="{% url 'Mascotas:Mascotas_crear' %}">Registrar</a></li>
+                                  <li><a href="{% url 'Mascotas:Mascotas_listar' %}">Listar</a></li>
+                                </ul>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Adopciones<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{% url 'Adopciones:solicitud_crear' %}">Solicitar</a></li>
+                                    <li><a href="{% url 'Adopciones:solicitud_listar' %}">Listar solicitudes</a></li>
+                                </ul>
+                              </li>
+                          </ul>
+                          <ul class="nav navbar-nav navbar-right">
+                              <li class="dropdown"><a href="https://www.facebook.com/groups/1483855585198460/" onclick="pageTracker._link(this.href); return false;">Facebook</a>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Opciones<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{% url 'logout' %}">Salir</a></li>
+                                </ul>
+                              </li>
+                          </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            </div>
+        </div>
+    </div>
+
+  {% endblock %}
+
+</div>
+
+
+ {% block header %}
+ {% include 'base/header.html' %}
+ {% endblock %}
+
+ {% block content %}
+<div class="well well-sm">
+
+ <h2>Bienvenidos a PACMA Tres Arroyos.</h2>
+ <h3></h3>
+ <h4>La idea es que llevemos un registro de las mascotas que vamos encontrando
+ y están en tránsito a la espera de que sean adoptadas.<br/> Para ello en la sección
+ Mascotas se puede agregar una nueva o consultar el listado de las mascotas encontradas.
+ En la sección de Adopciones hay un registro de la gente que quiere adoptar
+ una mascota de las que estén en tránsito. El único requisito es brindar unos
+ mínimos datos personales, así como las razones de porque quieren adoptar una. De esa
+ manera la decisión de aceptar la solicitud queda a consideración de los administradores.<br/>
+ Es importante para este punto que al momento de registrar una mascota nueva, se ingresen
+ los datos de donde fue encontrada, en que condiciones y si es posible una foto.<br/>
+ Adicionalmente serviría también para que alguien que ha extraviado su mascota, pueda consultar
+ en el listado si alguién la encontró o tiene algún dato acerca de su paradero.
+</h4>
+
+<p> El objetivo de la página no es remplazar el grupo de Facebook, sino sistematizar toda
+ la información que hay en el, y contribuir a su difución.
+</p>
+
+</body>
+
+ </div>
+ {% endblock %}
+
+
+
+ {% block footer %}
+
+ {% endblock %}
+
+ {% block extrajs %}
+ {% endblock %}
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>
